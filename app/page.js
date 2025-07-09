@@ -77,12 +77,16 @@ export default function Home() {
 
         <div className="w-full">
           <p className="text-base/8 font-semibold text-center">Test CSS overwriting</p>
-          <p className="text-sm/6 text-justify">
-            Make the window window large enough to show the text in red.
-            The zoom CSS will make the text in red disappear after a zoom call.<br/>
-            In addition, some other formatting maybe be disrupted, like background colors, font size or alignments.</p>
+          <p className="text-sm/6">The following HTML elements should not change style after the video call.</p>
+          <br/>
+          <h2 className="my-4 text-base/7 font-semibold">This is an h2 header, with semibold font </h2>
+          <button
+            className="my-4 rounded-full bg-gray-900 dark:bg-gray-200 px-4 py-2.5 text-sm font-semibold text-white dark:text-black shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+          >
+            This is a button with black background and white text
+          </button>
 
-          <p className="pt-2 text-sm/6 text-red-500 hidden sm:block">This is the test line. Am I still visible?</p>
+          <p className="my-4 text-sm/6 text-red-500 hidden sm:block">This is the test line in red, visible for screen larger than 640px</p>
 
         </div>
       </main>

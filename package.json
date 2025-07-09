@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@zoom/videosdk-ui-toolkit": "2.2.0-1",
+    "@zoom/videosdk-ui-toolkit": "^2.2.0-2",
     "next": "15.3.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
