@@ -19,7 +19,7 @@ The script `script/prefix-zoom-css.js` creates a copy of the original `videosdk-
 with a custom prefix.
 The created stylesheet is used by the `VideochatPrefixed.jsx` component. 
 
-With Zoom Video SDK UI toolkit version v2.1.10-1, the prefixed approach works only if the custom prefix is added to the `body`element. 
+With Zoom Video SDK UI toolkit version v2.1.10-2, the prefixed approach works only if the custom prefix is added to the `body`element. 
 This is done dynamically in the `joinSession` function, and it is dynamically removed in the `destroySession` function.
 
 ## Getting Started
