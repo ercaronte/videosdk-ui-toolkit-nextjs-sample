@@ -52,20 +52,6 @@ export default function Home() {
             </div>
           </fieldset>
 
-          <fieldset className="flex flex-col text-sm/6">
-            CSS
-            <div className="flex gap-4 items-center">
-              <label>
-                <input type="radio" name="prefixed" value="false" defaultChecked="true" className="mr-2"/>
-                Original
-              </label>
-              <label>
-                <input type="radio" name="prefixed" value="true" className="mr-2"/>
-                Prefixed
-              </label>
-            </div>
-          </fieldset>
-
           <button
             type="submit"
             className="mt-4 rounded-full bg-gray-900 dark:bg-gray-200 px-4 py-2.5 text-sm font-semibold text-white dark:text-black shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
@@ -83,7 +69,8 @@ export default function Home() {
           <button
             className="my-4 rounded-full bg-gray-900 dark:bg-gray-200 px-4 py-2.5 text-sm font-semibold text-white dark:text-black shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
           >
-            This is a button with black background and white text
+            This is a button with black (dark mode white)<br/>
+            background and white (dark mode black) text
           </button>
 
           <p className="my-4 text-sm/6 text-red-500 hidden sm:block">This is the test line in red, visible for screen larger than 640px</p>
