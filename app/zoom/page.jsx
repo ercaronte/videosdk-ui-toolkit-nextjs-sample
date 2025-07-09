@@ -1,16 +1,11 @@
 
-import VideochatPrefixedWrapper from "../components/prefixed/VideochatPrefixedWrapper";
-import VideochatWrapper from "../components/original/VideochatWrapper";
+import VideochatWrapper from "../components/VideochatWrapper";
 
 export default async function Page({ searchParams }) {
 
   const params = await searchParams;
 
   return <>
-    {params.prefixed === 'true' ?
-      <VideochatPrefixedWrapper params={params}/>
-      :
       <VideochatWrapper params={params}/>
-    }
   </>
 }

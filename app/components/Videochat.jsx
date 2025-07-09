@@ -1,18 +1,16 @@
 'use client';
 
 import uitoolkit from "@zoom/videosdk-ui-toolkit";
-import "./videosdk-ui-toolkit.prefixed.css"
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-const CSS_PREFIX = "zoom-sdk-scope"
+const Videochat = ({ params }) => {
 
-const VideochatPrefixed = ({ params }) => {
-
-  // console.log('VideochatPrefixed', params)
+  // console.log('Videochat', params)
 
   const router = useRouter()
   let sessionContainer = null;
+  let cssLink = null;
 
   // set your auth endpoint here
   // a sample is available here: https://github.com/zoom/videosdk-auth-endpoint-sample
@@ -42,16 +40,6 @@ const VideochatPrefixed = ({ params }) => {
   };
 
   const role = parseInt(params.role);
-
-  const addPrefix = () => {
-    const body = document.getElementsByTagName("body")[0]
-    if (!body.classList.contains(CSS_PREFIX)) body.classList.add(CSS_PREFIX)
-  }
-
-  const removePrefix = () => {
-    const body = document.getElementsByTagName("body")[0]
-    if (body.classList.contains(CSS_PREFIX)) body.classList.remove(CSS_PREFIX)
-  }
 
   useEffect(() => {
 
@@ -86,10 +74,27 @@ const VideochatPrefixed = ({ params }) => {
     getVideoSDKJWT();
   })
 
+  function loadCSS() {
+    if (!cssLink) {
+      cssLink = document.createElement('link');
+      cssLink.rel = 'stylesheet';
+      cssLink.href = '/videosdk-ui-toolkit.css';
+      // cssLink.href = '../node_modules/@zoom/videosdk-ui-toolkit/dist/videosdk-ui-toolkit.css';
+      document.head.appendChild(cssLink);
+    }
+  }
+
+  function unloadCSS() {
+    if (cssLink) {
+      document.head.removeChild(cssLink);
+      cssLink = null;
+    }
+  }
+
   function joinSession() {
     console.log(config);
-    addPrefix()
     if (sessionContainer) {
+      loadCSS();
       uitoolkit.joinSession(sessionContainer, config);
       uitoolkit.onSessionClosed(sessionClosed);
       uitoolkit.onSessionDestroyed(sessionDestroyed);
@@ -103,7 +108,7 @@ const VideochatPrefixed = ({ params }) => {
   const sessionDestroyed = () => {
     console.log("session destroyed");
     uitoolkit.destroy();
-    removePrefix()
+    unloadCSS();
     router.push("/")
   };
 
@@ -117,4 +122,4 @@ const VideochatPrefixed = ({ params }) => {
 
 }
 
-export default VideochatPrefixed;
+export default Videochat;
