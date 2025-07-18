@@ -52,6 +52,20 @@ export default function Home() {
             </div>
           </fieldset>
 
+          <fieldset className="flex flex-col text-sm/6">
+            CSS
+            <div className="flex gap-4 items-center">
+              <label>
+                <input type="radio" name="dynamic" value="true" defaultChecked="true" className="mr-2"/>
+                Dynamic
+              </label>
+              <label>
+                <input type="radio" name="dynamic" value="false" className="mr-2"/>
+                Default
+              </label>
+            </div>
+          </fieldset>
+
           <button
             type="submit"
             className="mt-4 rounded-full bg-gray-900 dark:bg-gray-200 px-4 py-2.5 text-sm font-semibold text-white dark:text-black shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
