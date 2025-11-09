@@ -31,7 +31,6 @@ const Videochat = ({ params }) => {
   const router = useRouter();
   const sessionContainerRef = useRef(null);
   const cssLinkRef = useRef(null);
-  const callbackCounter = useRef(0);
 
   // Load CSS for toolkit
   const loadCSS = () => {
@@ -72,14 +71,7 @@ const Videochat = ({ params }) => {
 
   // Handle session destroyed
   const handleSessionDestroyed = () => {
-    callbackCounter.current += 1;
-
-    // Prevent multiple executions since uitoolkit doesn't support removing onSessionDestroyed listeners
-    if (callbackCounter.current > 2) {
-      console.log(`handleSessionDestroyed. Callback IGNORED! Counter ${callbackCounter.current}, function.id: ${handleSessionDestroyed.id}`)
-      return;
-    }
-    console.log(`handleSessionDestroyed. Counter ${callbackCounter.current}, function.id: ${handleSessionDestroyed.id}`)
+    console.log(`handleSessionDestroyed, function.id: ${handleSessionDestroyed.id}`)
 
     uitoolkit.destroy();
     unloadCSS();
