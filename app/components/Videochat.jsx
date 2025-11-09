@@ -70,6 +70,7 @@ const Videochat = ({ params }) => {
   }
   handleSessionClosed.id = new Date().getTime();
 
+  // Handle session destroyed
   const handleSessionDestroyed = () => {
     callbackCounter.current += 1;
 

@@ -33,14 +33,19 @@ const Videochat = ({ params }) => {
 
   // Handle session closed/destroyed
   const handleSessionClosed = () => {
-    console.log("session closed");
+    console.log(`session closed (original), function.id: ${handleSessionClosed.id}`);
+    uitoolkit.offSessionClosed();
   }
+  handleSessionClosed.id = new Date().getTime();
 
   const handleSessionDestroyed = () => {
-    console.log("session destroyed");
+    console.log(`handleSessionDestroyed(original), function.id: ${handleSessionDestroyed.id}`)
+
     uitoolkit.destroy();
     router.push("/");
   }
+  handleSessionDestroyed.id = new Date().getTime();
+
 
   // Join session with JWT
   const joinSession = (jwt) => {
