@@ -27,12 +27,13 @@ const getConfig = (params, jwt = "") => ({
 });
 
 const Videochat = ({ params }) => {
+  console.log("Videochat loaded, with params:", params);
   const router = useRouter();
   const sessionContainerRef = useRef(null);
   const cssLinkRef = useRef(null);
 
   // Load CSS for toolkit
-  const loadCSS =() => {
+  const loadCSS = () => {
     if (!cssLinkRef.current) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
@@ -50,25 +51,43 @@ const Videochat = ({ params }) => {
     }
   }
 
-  // Handle session closed/destroyed
-  const handleSessionClosed =() => {
-    console.log("session closed");
-  }
+  // Handle session joined
+  const handleSessionJoined = () => {
+    console.log(`handleSessionJoined, function.id: ${handleSessionClosed.id}`);
 
+    // Unregister all session joined listeners
+    uitoolkit.offSessionJoined();
+  }
+  handleSessionJoined.id = new Date().getTime();
+
+  // Handle session closed
+  const handleSessionClosed = () => {
+    console.log(`handleSessionClosed, function.id: ${handleSessionClosed.id}`);
+
+    // Unregister all session closed listeners
+    uitoolkit.offSessionClosed();
+  }
+  handleSessionClosed.id = new Date().getTime();
+
+  // Handle session destroyed
   const handleSessionDestroyed = () => {
-    console.log("session destroyed");
+    console.log(`handleSessionDestroyed, function.id: ${handleSessionDestroyed.id}`)
+
     uitoolkit.destroy();
     unloadCSS();
     router.push("/");
-  }
+  };
+  handleSessionDestroyed.id = new Date().getTime();
 
   // Join session with JWT
   const joinSession = (jwt) => {
+    console.log("joinSession, name:", params.sessionName);
     const config = getConfig(params, jwt);
     const container = sessionContainerRef.current;
     if (container) {
       loadCSS();
       uitoolkit.joinSession(container, config);
+      uitoolkit.onSessionJoined(handleSessionJoined);
       uitoolkit.onSessionClosed(handleSessionClosed);
       uitoolkit.onSessionDestroyed(handleSessionDestroyed);
     }
@@ -76,6 +95,7 @@ const Videochat = ({ params }) => {
 
   // Fetch JWT and join session
   useEffect(() => {
+    console.log("useEffect. Fetching JWT and joining session...");
     const fetchJWTAndJoin = async () => {
       try {
         const res = await fetch(AUTH_ENDPOINT, {
@@ -98,7 +118,9 @@ const Videochat = ({ params }) => {
       }
     };
     fetchJWTAndJoin();
-    return unloadCSS;
+    return () => {
+      unloadCSS();
+    };
   }, [params]);
 
   return (

@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@zoom/videosdk-ui-toolkit':
-        specifier: ^2.2.10-1
-        version: 2.2.10-1(@reduxjs/toolkit@2.9.2(react-redux@9.2.0(@types/react@19.1.7)(react@18.3.1)(redux@5.0.1))(react@18.3.1))(@zoom/videosdk@2.3.0)(react-dom@18.3.1(react@18.3.1))(react-draggable@4.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-redux@9.2.0(@types/react@19.1.7)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
+        specifier: 2.3.0-2
+        version: 2.3.0-2(@reduxjs/toolkit@2.9.2(react-redux@9.2.0(@types/react@19.1.7)(react@18.3.1)(redux@5.0.1))(react@18.3.1))(@zoom/videosdk@2.3.0)(react-dom@18.3.1(react@18.3.1))(react-draggable@4.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-redux@9.2.0(@types/react@19.1.7)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
       next:
         specifier: 15.3.3
         version: 15.3.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -622,11 +622,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@zoom/videosdk-ui-toolkit@2.2.10-1':
-    resolution: {integrity: sha512-hFf3lvfsnbZXpTSrUe3bDDFcge8GggKRwMGkP2hZqumWJpW4yQd8xZyQ9MEIORCGSvELJslIcQLqmZpm6PURQw==}
+  '@zoom/videosdk-ui-toolkit@2.3.0-2':
+    resolution: {integrity: sha512-rnIROb+H2OAslcowqZ+j62SLC9ade/3znPLyCQVsS25ccolNySVvV2loTI5vxx7DsueThZenoJeW8SMwV4OQ9w==}
     peerDependencies:
       '@reduxjs/toolkit': ^2.0.0
-      '@zoom/videosdk': ^2.2.10
+      '@zoom/videosdk': ^2.3.0
       react: ^18.0.0
       react-dom: ^18.0.0
       react-draggable: ^4.0.0
@@ -2354,7 +2354,7 @@ snapshots:
   '@unrs/resolver-binding-win32-x64-msvc@1.11.1':
     optional: true
 
-  '@zoom/videosdk-ui-toolkit@2.2.10-1(@reduxjs/toolkit@2.9.2(react-redux@9.2.0(@types/react@19.1.7)(react@18.3.1)(redux@5.0.1))(react@18.3.1))(@zoom/videosdk@2.3.0)(react-dom@18.3.1(react@18.3.1))(react-draggable@4.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-redux@9.2.0(@types/react@19.1.7)(react@18.3.1)(redux@5.0.1))(react@18.3.1)':
+  '@zoom/videosdk-ui-toolkit@2.3.0-2(@reduxjs/toolkit@2.9.2(react-redux@9.2.0(@types/react@19.1.7)(react@18.3.1)(redux@5.0.1))(react@18.3.1))(@zoom/videosdk@2.3.0)(react-dom@18.3.1(react@18.3.1))(react-draggable@4.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-redux@9.2.0(@types/react@19.1.7)(react@18.3.1)(redux@5.0.1))(react@18.3.1)':
     dependencies:
       '@reduxjs/toolkit': 2.9.2(react-redux@9.2.0(@types/react@19.1.7)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
       '@zoom/videosdk': 2.3.0
